@@ -1,0 +1,21 @@
+Bagisto v1.5.0 is vulnerable for Insecure direct object reference vulnerability.
+
+Vulnerable URL: https://localhost/customer/account/orders/print/* 
+
+Issue: Other users' invoices can be accessed
+
+Affected Version: Bagisto v1.5.0
+
+Fixed Version: Bagisto v1.5.1
+
+Steps to reproduce:
+1. Login in demo account and note the invoice number of any order.
+2. Now logout from demo account & create an another account (ex test account).
+3. Now place and order. (approve and create invoice from admin panel)
+4. ​Now in the test user profile click on invoice print option and intercept the request ​
+5. Now change the id value for invoice either we can set it to the value that we have copied fromstep 1  or in case we don't know any value we can apply bruteforce
+6. we can view other users personal and order details.
+
+Reference link : https://github.com/bagisto/bagisto/pull/4697 
+
+Recommendation: ​Validate users actions and their privileges before processing their request.we can alsoset such ids to unique and  unguessable to make it quite difficult to guess.
