@@ -1,0 +1,16 @@
+Bagisto v1.5.0 is vulnerable for Cross site scripting(XSS) via SVG file upload vulnerability from admin end.
+
+Vulnerable URL: https://localhost/admin/velocity/meta-data 
+
+Issue: After uploading SVG file attaker can get cookies of any user.
+
+Affected Version: Bagisto v1.5.0
+
+Fixed Version: Bagisto v1.5.1
+
+Steps to Reproduce:
+1. Login in admin account and visit vulnerableurl.
+2. Now in the image option try upload svg filewith payload.
+3. Click on update metadata, and our payloadnow can be executed from the store front and in theadmin  panel via visiting the uploaded image location
+
+Reference: https://github.com/bagisto/bagisto/pull/4764 
