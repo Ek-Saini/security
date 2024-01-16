@@ -1,0 +1,22 @@
+Qloapps v1.5.2 is vulnerable for Insecure Direct Object reference vulnerability.
+
+Vulnerable URL: https://localhost/index.php?controller=orderdetail
+
+Issue: we are able to cancel test user booking form demo user account by manipulating id_order parameter.
+
+Affected Version: Qloapps v1.5.2
+
+Fixed Version: Qloapps v1.6.0
+
+Dummy User's:       1 demo (demo@demo.com)
+                    2. test (test@test.com )
+
+Steps to Reproduce: 
+1. Check both user’s order history and their booking refund requests.
+2. login with demo user account and Cancel any booking.
+3. When clicking on submit button, Intercept the request.
+4. Now change id_order parameter value 1 to 7(test user order id) and send the request.
+5. Verify this with test user account, here we are able to cancel test user booking form demo user account by manipulating id_order parameter.
+
+
+Reference Link: https://github.com/webkul/hotelcommerce/pull/537
