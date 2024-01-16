@@ -1,0 +1,15 @@
+Bagisto v1.5.0 is vulnerable for Cross site request Forgery.
+
+Vulnerable URL: https://localhost/customer/account/addresses/delete/*
+
+Issue: Here a malicious user can force victim to click on a link and via that can delete users address.
+
+Affected Version: Bagisto v1.5.0
+
+Fixed Version: Bagisto v1.5.1
+
+Steps to reproduce:
+Step 1: Login into the demo account and copy the delete address.
+Step 2: now create a html page and include the url into the script.
+Step 3: Now open the html page in new tab. (make sure we are logged in with the same account (ex: demo) ).
+Step 4: Now refresh the demo user address page . The address should be deleted. 
