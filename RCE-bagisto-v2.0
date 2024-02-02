@@ -1,0 +1,20 @@
+Bagisto v2.0 is vulnerable for Remote code execution (RCE) via file upload from admin end.
+
+Vulnerable URL: https://localhost/bagisto-common/admin/settings/locales/edit 
+
+Affected Version: v2.0
+
+Issue: Attacker can get full access of the server and can get internal files.
+
+Steps to reproduce:
+
+Step 1: Login with admin credentials.
+Step 2: Go settings --> Locales  option.
+Step 3: Edit or create any locales, upload any image file and intercept the request after clicking on "Save locale" button.
+Step 4: Now change image file extension png to php, Enter malicious code and send the request.
+Step 5: Open https://localhost/bagisto-common/ url and Check the language options where the malicious file exist.
+Step 6: When we open this file in new tab, this payload will execute. 
+
+Reference link: https://github.com/bagisto/bagisto/pull/9370
+
+
