@@ -1,0 +1,31 @@
+Bagisto v2.0 is vulnerable for Cross Site Scripting (XSS Stored) vulnerability from admin end.
+
+Vulnerable URLs with parameter's name:
+      1. https://localhost/bagisto-common/admin/catalog/categories/edit/*
+              Vulnerable Parameter: en[name]
+      2. https://localhost/bagisto-common/admin/catalog/attributes/edit/*
+              Vulnerable parameter: admin_name
+      3. https://localhost/bagisto-common/admin/catalog/families/edit/*
+              Vulnerable parameter: name
+      4. https://localhost/bagisto-common/admin/settings/inventory-sources/edit/*
+               Vulnerable Parameter: name
+      5. https://localhost/bagisto-common/admin/settings/channels/edit/*?locale=en
+               Vulnerable Parameter: en[name] 
+      6. https://localhost/bagisto-common/admin/settings/roles/edit/*
+               Vulnerable Parameter: name
+      7. https://localhost/bagisto-common/admin/settings/themes/edit/*
+               Vulnerable Parameter: name
+      8. https://localhost/bagisto-common/admin/settings/taxes/rates/create
+               Vulnerable Parameter: identifier, state
+
+Affected Version: v2.0
+
+Fixed Version : v2.1.0
+
+Steps to reproduce: 
+
+Step 1: Login with admin credentials and open above given URL's.
+Step 2: Enter the XSS payload in above given vulnerable parameter's.
+Step 3: This payload will execute when we click on save button.
+
+Reference link:  https://github.com/bagisto/bagisto/pull/9463
